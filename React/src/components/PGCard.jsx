@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function PGCard(props){
     return(
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 transition-all duration-300 hover:-translate-y-2 hover:border-orange-400/60 hover:shadow-xl">
@@ -31,9 +33,9 @@ function PGCard(props){
                     <p className="mt-3 font-semibold text-white-400 "  >
                         ₹{props.rent} / month
                     </p>  
-                    <button className='bg-[#f47735] text-white px-4 py-3 rounded-xl font-extrabold  cursor-pointer mt-2'>
+                    <Link to={`/hostel/${props.id}`} aria-label={`View ${props.name}`} className='bg-[#f47735] text-white px-4 py-3 rounded-xl font-extrabold  cursor-pointer mt-2'>
                         →
-                    </button>
+                    </Link>
                 </div>
                 
             </div>             

@@ -2,41 +2,8 @@ import Navbar from "../components/Navbar";
 import PGCard from "../components/PGCard";
 import {useState} from "react";
 
-const pgListings = [
-    {
-        id: 1,
-        name: "Sunrise Residency",
-        rent: 7800,
-        image: "/images/hostel1.png",
-        location: "Kudasan, Gandhinagar",
-        rating: 4.8,
-        type: "Co-living",
-        category: "PG",
-        availableSeats: 5,    
-    },
-    {
-        id: 2,
-        name: "Green View Hostel",
-        rent: 7500,
-        image: "/images/hostel1.png",
-        location: "Raisan, Gandhinagar",
-        rating: 4.6,
-        type: "Co-living",
-        category: "Hostel",
-        availableSeats: 3,
-    },
-    {
-        id: 3,
-        name: "Comfort Homes",
-        rent: 9000,
-        image: "/images/hostel1.png",
-        location: "Kudasan, Gandhinagar",
-        rating: 4.9,
-        type: "Private Room",
-        category: "PG",
-        availableSeats: 2,
-    },
-];
+import { hostels as pgListings } from "../data/hostels";
+
 function BrowseStays() {
     const[seatsOpen, setSeatsOpen]=useState(false)
     const[searchText, setSearchText]=useState("")
@@ -141,6 +108,7 @@ function BrowseStays() {
                         (filteredPGs.map((pg) => (
                         <PGCard
                             key={pg.id}
+                            id={pg.id}
                             name={pg.name}
                             rent={pg.rent}
                             image={pg.image}

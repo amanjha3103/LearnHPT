@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import HostelDetail from './pages/HostelDetail';
 
 
 function App() {
@@ -57,9 +58,9 @@ function App() {
                     <p>
                       ₹7,800 <span className="text-sm font-normal text-gray-400" >/ month</span>
                     </p>
-                    <button className="font-semibold text-orange-400 cursor-pointer">
+                    <Link to="/hostel/1" className="font-semibold text-orange-400 cursor-pointer">
                         View stay →
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -84,9 +85,10 @@ function App() {
             
               <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
                 <PGCard
+                  id={1}
                   name="Sunrise Residency"
                   rent={7800}
-                  image="YOUR_IMAGE_URL"
+                  image="/images/hostel1.png"
                   location="kudasan, Gandhinagar"
                   rating={4.8}
                   type="co-living"
@@ -95,9 +97,10 @@ function App() {
                 />
                 
                 <PGCard
+                  id={2}
                   name="Green View Hostel"
                   rent={7500}
-                  image="YOUR_IMAGE_URL"
+                  image="/images/hostel1.png"
                   location="Raisan, Gandhinagar"
                   rating={4.6}
                   type="Co-living"
@@ -106,9 +109,10 @@ function App() {
                 />
 
                 <PGCard
+                  id={3}
                   name="Comfort Homes"
                   rent={9000}
-                  image="YOUR_IMAGE_URL"
+                  image="/images/hostel1.png"
                   location="Kudasan, Gandhinagar"
                   rating={4.9}
                   type="Private Room"
@@ -146,6 +150,7 @@ function App() {
                 </footer>
         </div>
       } />
+      <Route path="/hostel/:id" element={<HostelDetail />} />
       <Route path='/listings' element={<BrowseStays />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path="/login" element={<Login />} />
