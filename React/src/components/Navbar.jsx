@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 function Navbar({variant='default'}){
     const navclass= variant=='glass'? 'fixed inset-x-0 top-0 border-b border-white/10 bg-[#262626]/40 shadow-lg backdrop-blur-xl':''
     return(
@@ -9,7 +10,7 @@ function Navbar({variant='default'}){
             <div className='flex items-center gap-6'>
               <Link to="/listings">Browse Stays</Link>
               <Link to="/dashboard">Dashboard</Link>
-              <button className='bg-black text-white px-5 py-2.5 rounded-full font-semibold cursor-pointer'>Get Started</button>
+              <Link to="/login" className='bg-black text-white px-5 py-2.5 rounded-full font-semibold cursor-pointer'>Get Started</Link>
             </div>
             
           </nav>

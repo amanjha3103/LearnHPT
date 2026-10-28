@@ -1,4 +1,6 @@
 import Navbar from "../components/Navbar";
+import SavedPGCard from "../components/SavePGCard";
+import RequestCard from '../components/RequestCard';
 
 const requests = [
     {
@@ -9,7 +11,7 @@ const requests = [
         moveInDate: "1 November 2026",
         status: "Pending"
     },
-    {t-
+    {
         id: 2,
         name: "Green View Hostel",
         type: "Co-living",
@@ -19,6 +21,31 @@ const requests = [
     }
 ];
 
+const savedPGs = [
+    {
+        id: 1,
+        name: "Sunrise Residency",
+        location: "Kudasan, Gandhinagar",
+        rent: 7800
+    },
+    {
+        id: 2,
+        name: "Green View Hostel",
+        location: "Raisan, Gandhinagar",
+        rent: 7500
+    }
+];
+
+const totalRequests = requests.length;
+
+const pendingRequests = requests.filter(
+    (request) => request.status === "Pending"
+).length;
+
+const acceptedRequests = requests.filter(
+    (request) => request.status === "Accepted"
+).length;
+
 function Dashboard() {
     return (
         <div className="min-h-screen bg-black text-white">
@@ -26,7 +53,7 @@ function Dashboard() {
 
             <section className="border-b border-white/10 px-6 pb-8 pt-32 md:px-20">
                 <h1 className="text-4xl font-bold">
-                    Welcome back, Ama
+                    Welcome back, Aman
                 </h1>
                 <p className="m3 text-gray-400">
                     Track requests and keep exploring student stays.
@@ -38,21 +65,21 @@ function Dashboard() {
                     <div className="rounded-2xl border border-white/10 p-6">
                         <div className="flex items-center justify-between">
                             <span className="text-gray-400">Total requests</span>
-                            <span className="text-3xl font-bold">2</span>
+                            <span className="text-3xl font-bold">{totalRequests}</span>
                         </div>
                     </div>
 
                     <div className="rounded-2xl border border-white/10 p-6">
                         <div className="flex items-center justify-between">
                             <span className="text-gray-400">Pending</span>
-                            <span className="text-3xl font-bold">1</span>
+                            <span className="text-3xl font-bold">{pendingRequests}</span>
                         </div>
                     </div>
 
                     <div className="rounded-2xl border border-white/10 p-6">
                         <div className="flex items-center justify-between">
                             <span className="text-gray-400">Accepted</span>
-                            <span className="text-3xl font-bold">1</span>
+                            <span className="text-3xl font-bold">{acceptedRequests}</span>
                         </div>
                     </div>
 
@@ -88,23 +115,42 @@ function Dashboard() {
                         </div>
                     </div>
 
-                    <RequestCard
-                        name="Sunrise Residency"
-                        type="Co-living"
-                        location="Kudasan, Gandhinagar"
-                        moveInDate="1 November 2026"
-                        status="Pending"
-                    />
-
-                    <RequestCard
-                        name="Green View Hostel"
-                        type="Co-living"
-                        location="Raisan, Gandhinagar"
-                        moveInDate="5 November 2026"
-                        status="Accepted"
-                    />
+                    {requests.map((request) => (
+                        <RequestCard
+                            key={request.id}
+                            name={request.name}
+                            type={request.type}
+                            location={request.location}
+                            moveInDate={request.moveInDate}
+                            status={request.status}
+                        />
+                    ))}
                 </div>
             </section>
+            
+            <section className="bg-[#1C1C1C] px-6 pb-12 md:px-20">
+                <div className="mx-auto max-w-6xl border-t border-white/10 pt-8">
+                    <h2 className="text-2xl font-bold">
+                        Saved PGs
+                    </h2>
+                    <p className="mt-2 text-gray-400">
+                        Your favourite places to stay.
+                    </p>
+
+                    <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                        {savedPGs.map((pg) => (
+                            <SavedPGCard
+                                key={pg.id}
+                                id={pg.id}
+                                name={pg.name}
+                                location={pg.location}
+                                rent={pg.rent}
+                            />
+                        ))}    
+                    </div>
+                </div>
+            </section>
+
 
         </div>
     );

@@ -3,8 +3,9 @@ import PGCard from './components/PGCard';
 import FeatureCard from './components/FeatureCard';
 import BrowseStays from './pages/BrowseStay'
 import Navbar from './components/Navbar';
-import Dashboard from './pages/dashboard';
-import RequestCard from './components/RequestCard';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 function App() {
@@ -16,9 +17,8 @@ function App() {
         <div className='min-h-screen bg-[#f47735] text-white'>     
           <Navbar/>
           <main className='min-h-[calc(100vh-72px)] px-6 py-12 md:px-20 md:py-8 '>
-            <section className='grid grid-cols-1 gap-10 items-center md:grid-cols-2 md:gap-3
-            '>
-              <div>
+            <section className="grid grid-cols-1 items-center gap-4 md:grid-cols-[0.8fr_1.2fr]">
+             <div className="md:-translate-y-6">
                 <p className='text-sm font-semibold uppercase tracking-wideset'>
                   STUDENT STAYS, MADE SIMPLE
                 </p> 
@@ -36,8 +36,8 @@ function App() {
                 </div> 
               </div>
               
-              <div className='relative w-full h-[350px] rounded-3xl overflow-hidden md:h-[500px]'>
-                <img className='h-full w-full object-cover' src="/images/hostel1.png" alt="student accomodation rounded-3xl"/>
+              <div className="relative w-full h-[350px] rounded-3xl overflow-hidden md:h-[550px]">
+                <img className='h-full w-full object-cover' src="/images/hostel1.png"  alt="student accomodation rounded-3xl"/>
                 <div className="absolute bottom-5 left-5 rounded-2xl bg-black p-5 text-white right-5 max-w-sm">
                   <div className="flex items-center justify-between gap-4">
                     <div>
@@ -148,6 +148,8 @@ function App() {
       } />
       <Route path='/listings' element={<BrowseStays />} />
       <Route path='/dashboard' element={<Dashboard />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
     
     
